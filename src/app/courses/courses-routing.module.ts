@@ -5,6 +5,7 @@ import { CourseComponent } from "./course/course.component";
 import { CourseResolver } from "./services/course.resolver";
 import { LessonsListComponent } from "./lessons-list/lessons-list.component";
 import { LessonDetailComponent } from "./lesson/lesson-detail.component";
+import { lessonsResolver } from "./services/lessons.resolver";
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: "",
         component: LessonsListComponent,
+        resolve: {
+          // non lo devo inserire nei providers perchè a differenza dell'altro che è una classe con un metodo implementato che ritorna un observable quando chiamato, questo è una const esportata di tipo ResolveFn, quindi una funzione che ritorna subito un observable
+          lessons: lessonsResolver,
+        },
       },
       {
         path: "lessons/:lessonSeqNo",
