@@ -32,7 +32,7 @@ export class LoadingComponent implements OnInit {
           event instanceof NavigationStart ||
           event instanceof RouteConfigLoadStart
         ) {
-          console.log(event.type);
+          // console.log(event.type);
           this.loadingService.loadingOn();
         } else if (
           event instanceof NavigationEnd ||
