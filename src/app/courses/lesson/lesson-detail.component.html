@@ -1,4 +1,12 @@
-<a class="back" href="javascript:void(0)">Back To Course</a>
+<!-- <a class="back" href="javascript:void(0)">Back To Course</a> -->
+
+<!-- per navigare con il routing è possibile farlo programmaticamente cioè come se mi muovessi fra directory-->
+<!-- mi trovo in una rotta ad esempio: http://localhost:4200/courses/reactive-angular-course/lessons/0  -->
+<!-- devo andare a: http://localhost:4200/courses/reactive-angular-course  -->
+<!-- quindi è come se mi trovassi nella folder 0, con .. salgo e sono il lessons, .. salgo ancora e sono in reactive-angular-course -->
+<a class="back" href="javascript:void(0)" [routerLink]="['../..']"
+  >Back To Course</a
+>
 
 <!-- <div class="lesson-detail" *ngIf="lesson$ | async as lesson"> -->
 <div class="lesson-detail" *ngIf="lesson">
@@ -7,7 +15,11 @@
   <h5>Duration: {{ lesson.duration }}</h5>
 
   <div class="video-container">
-    <mat-icon class="nav-button" *ngIf="!lesson.first">
+    <mat-icon
+      (click)="previous(lesson)"
+      class="nav-button"
+      *ngIf="!lesson.first"
+    >
       navigate_before
     </mat-icon>
 
@@ -20,6 +32,8 @@
     >
     </iframe>
 
-    <mat-icon class="nav-button" *ngIf="!lesson.last"> navigate_next </mat-icon>
+    <mat-icon (click)="next(lesson)" class="nav-button" *ngIf="!lesson.last">
+      navigate_next
+    </mat-icon>
   </div>
 </div>

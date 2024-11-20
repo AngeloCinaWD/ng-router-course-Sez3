@@ -43,3 +43,5 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
 ## [Router events](https://angular.dev/guide/routing/router-reference#router-events)
 
 ![router-events-type](/router_event_type.png)
+
+![href="javascript:void(0)"](</javascript_void(0).png>)
